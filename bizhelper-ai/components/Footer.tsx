@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Wand2, Twitter, Linkedin, Github } from "lucide-react";
+import Image from "next/image";
+import { Twitter, Linkedin, Github } from "lucide-react";
 
 const COLUMNS = [
   {
@@ -35,10 +36,14 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.4fr_repeat(3,1fr)]">
           {/* Brand */}
           <div>
-            <Link href="#top" className="flex items-center gap-2.5">
-              <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-gradient shadow-glow-sm">
-                <Wand2 size={18} className="text-white" />
-              </span>
+            <Link href="/" className="flex items-center gap-2.5">
+              <Image
+                src="/logo.png"
+                alt="BizHelper AI"
+                width={36}
+                height={36}
+                className="h-9 w-9 object-contain"
+              />
               <span className="font-display text-lg font-semibold tracking-tight">
                 BizHelper<span className="text-gradient"> AI</span>
               </span>
