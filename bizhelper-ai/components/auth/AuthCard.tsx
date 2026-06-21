@@ -6,11 +6,13 @@ export default function AuthCard({
   title,
   subtitle,
   children,
+  oauth,
   footer,
 }: {
   title: string;
   subtitle?: string;
   children: ReactNode;
+  oauth?: ReactNode;
   footer?: ReactNode;
 }) {
   return (
@@ -38,7 +40,21 @@ export default function AuthCard({
           {subtitle && (
             <p className="mt-1.5 text-sm text-ink-muted">{subtitle}</p>
           )}
-          <div className="mt-6">{children}</div>
+
+          {oauth && (
+            <div className="mt-6">
+              {oauth}
+              <div className="my-5 flex items-center gap-3">
+                <div className="h-px flex-1 bg-white/10" />
+                <span className="text-xs uppercase tracking-wider text-ink-faint">
+                  or
+                </span>
+                <div className="h-px flex-1 bg-white/10" />
+              </div>
+            </div>
+          )}
+
+          <div className={oauth ? "" : "mt-6"}>{children}</div>
         </div>
 
         {footer && (
